@@ -1,0 +1,55 @@
+﻿@page "/counter"
+
+<h1>Game of live</h1>
+
+<p>Current count: @currentCount</p>
+<hr>
+@{
+    if(currentCount==0){
+
+/*
+        // Block
+        e.live(4,4);
+        e.live(4,5);
+        e.live(5,4);
+        e.live(5,5);
+
+        // Toad
+        e.live(10,10);
+        e.live(10,11);
+        e.live(10,12);
+        e.live(11,9);
+        e.live(11,10);
+        e.live(11,11);
+
+        */
+    }
+}
+<table class="environment">
+    @for (int i = 0; i < @e.total_of_rows(); i++){
+        <tr>
+            @for (int j = 0; j < @e.total_of_cols(); j++)
+            {
+
+                /*
+                @if (e.is_alive(i,j)){
+                    <td class="cell alive"></td>
+                }else{
+                    <td class="cell dead"></td>
+                }*/
+            }
+        </tr>
+    }
+</table>
+<hr>
+<button class="btn btn-primary" @onclick="IncrementCount">Next</button>
+@code {
+    private int currentCount = 0;
+    private Data.Environment e = new Data.Environment(20,20);
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        //e.nextConwayStep();
+    }
+}
